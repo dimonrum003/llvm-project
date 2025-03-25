@@ -1,0 +1,12 @@
+#ifndef LLVM_LIB_TARGET_DRARCH_TARGETINFO_DRARCHTARGETINFO_H
+#define LLVM_LIB_TARGET_DRARCH_TARGETINFO_DRARCHTARGETINFO_H
+
+namespace llvm {
+
+class Target;
+
+Target &getTheDRArchTarget();
+
+} // end namespace llvm
+
+#endif // LLVM_LIB_TARGET_DRARCH_TARGETINFO_DRARCHTARGETINFO_H

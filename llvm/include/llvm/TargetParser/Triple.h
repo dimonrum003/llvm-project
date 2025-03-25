@@ -56,6 +56,7 @@ public:
     bpfel,          // eBPF or extended BPF or 64-bit BPF (little endian)
     bpfeb,          // eBPF or extended BPF or 64-bit BPF (big endian)
     csky,           // CSKY: csky
+    drarch,         // DRArch: Dmitriy's Rumyantsev Architecture (For MIPT LLVM-course)
     dxil,           // DXIL 32-bit DirectX bytecode
     hexagon,        // Hexagon: hexagon
     loongarch32,    // LoongArch (32-bit): loongarch32

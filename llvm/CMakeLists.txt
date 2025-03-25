@@ -484,6 +484,7 @@ set(LLVM_ALL_TARGETS
   ARM
   AVR
   BPF
+  DRArch
   Hexagon
   Lanai
   LoongArch
