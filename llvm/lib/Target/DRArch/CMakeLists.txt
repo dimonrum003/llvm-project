@@ -1,7 +1,14 @@
 add_llvm_component_group(DRArch)
 
+set(LLVM_TARGET_DEFINITIONS DRArch.td)
+ 
+tablegen(LLVM DRArchGenRegisterInfo.inc -gen-register-info)
+ 
+add_public_tablegen_target(DRArchCommonTableGen)
+ 
 add_llvm_target(DRArchCodeGen
   DRArchTargetMachine.cpp
+  DRArchRegisterInfo.cpp
 
   LINK_COMPONENTS
   CodeGen
