@@ -1,5 +1,6 @@
 #include "MCTargetDesc/DRArchInfo.h"
 #include "DRArch.h"
+#include "DRArchInstPrinter.h"
 #include "DRArchMCAsmInfo.h"
 #include "TargetInfo/DRArchTargetInfo.h"
 #include "llvm/MC/MCDwarf.h"
@@ -51,6 +52,15 @@ static MCAsmInfo *createDRArchMCAsmInfo(const MCRegisterInfo &MRI,
   return MAI;
 }
 
+static MCInstPrinter *createDRArchMCInstPrinter(const Triple &T,
+                                             unsigned SyntaxVariant,
+                                             const MCAsmInfo &MAI,
+                                             const MCInstrInfo &MII,
+                                             const MCRegisterInfo &MRI) {
+  DRARCH_DUMP_MAGENTA
+  return new DRArchInstPrinter(MAI, MII, MRI);
+}
+
 // We need to define this function for linking succeed
 extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDRArchTargetMC() {
   DRARCH_DUMP_MAGENTA
@@ -63,4 +73,7 @@ extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDRArchTargetMC() {
   // Register the MC subtarget info.
   TargetRegistry::RegisterMCSubtargetInfo(TheDRArchTarget,
                                           createDRArchMCSubtargetInfo);
+
+  // Register the MCInstPrinter
+  TargetRegistry::RegisterMCInstPrinter(TheDRArchTarget, createDRArchMCInstPrinter);
 }
