@@ -22,6 +22,19 @@ enum NodeType : unsigned {
 
 } // namespace DRArchISD
 
+class DRArchTargetLowering : public TargetLowering {
+public:
+  explicit DRArchTargetLowering(const TargetMachine &TM, const DRArchSubtarget &STI);
+
+  /// This method returns the name of a target specific DAG node.
+  const char *getTargetNodeName(unsigned Opcode) const override;
+
+  DRArchSubtarget const &getSubtarget() const { return STI; }
+
+private:
+  const DRArchSubtarget &STI;
+};
+
 } // end namespace llvm
 
 #endif // LLVM_LIB_TARGET_DRARCH_DRARCHISELLOWERING_H

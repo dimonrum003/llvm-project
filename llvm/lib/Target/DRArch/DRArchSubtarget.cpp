@@ -10,8 +10,8 @@ using namespace llvm;
 #define GET_SUBTARGETINFO_CTOR
 #include "DRArchGenSubtargetInfo.inc"
 
-DRArchSubtarget::DRArchSubtarget(const StringRef &CPU, const StringRef &TuneCPU,
-                           const StringRef &FS, const TargetMachine &TM)
-    : DRArchGenSubtargetInfo(TM.getTargetTriple(), CPU, TuneCPU, FS) {
+DRArchSubtarget::DRArchSubtarget(const Triple &TT, const std::string &CPU,
+                           const std::string &FS, const TargetMachine &TM)
+    : DRArchGenSubtargetInfo(TT, CPU, /*TuneCPU=*/CPU, FS), TLInfo(TM, *this) {
   DRARCH_DUMP_CYAN
 }
