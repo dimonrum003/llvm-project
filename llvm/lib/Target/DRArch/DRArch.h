@@ -11,7 +11,6 @@
          << __func__ << "\n\t\t" << __FILE__ << ":" << __LINE__ << "\n";        \
      llvm::errs().changeColor(llvm::raw_ostream::WHITE);                        \
    }
- // #define DRARCH_DUMP(Color) {}
 
 #define DRARCH_DUMP_RED     DRARCH_DUMP(llvm::raw_ostream::RED)
 #define DRARCH_DUMP_GREEN   DRARCH_DUMP(llvm::raw_ostream::GREEN)

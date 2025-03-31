@@ -9,7 +9,7 @@ using namespace llvm;
 #include "DRArchGenRegisterInfo.inc"
 
 DRArchRegisterInfo::DRArchRegisterInfo() : DRArchGenRegisterInfo(DRArch::R0) {
-    DRARCH_DUMP_GREEN
+  DRARCH_DUMP_GREEN
 }
 
 const MCPhysReg *

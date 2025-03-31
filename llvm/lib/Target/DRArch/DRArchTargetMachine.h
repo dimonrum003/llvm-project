@@ -14,11 +14,11 @@ class DRArchTargetMachine : public CodeGenTargetMachineImpl {
 
 public:
   DRArchTargetMachine(const Target &T, const Triple &TT, StringRef CPU,
-                  StringRef FS, const TargetOptions &Options,
-                  std::optional<Reloc::Model> RM,
-                  std::optional<CodeModel::Model> CM, CodeGenOptLevel OL,
-                  bool JIT);
-  
+                      StringRef FS, const TargetOptions &Options,
+                      std::optional<Reloc::Model> RM,
+                      std::optional<CodeModel::Model> CM, CodeGenOptLevel OL,
+                      bool JIT);
+
   const DRArchSubtarget *getSubtargetImpl(const Function &) const override {
     DRARCH_DUMP_CYAN
     return &Subtarget;
