@@ -4,7 +4,9 @@
 #include "DRArch.h"
 #include "DRArchFrameLowering.h"
 #include "DRArchISelLowering.h"
+#include "DRArchInstrInfo.h"
 #include "DRArchRegisterInfo.h"
+#include "llvm/CodeGen/SelectionDAGTargetInfo.h"
 #include "llvm/CodeGen/TargetSubtargetInfo.h"
 
 #define GET_SUBTARGETINFO_HEADER
@@ -16,6 +18,8 @@ class DRArchSubtarget : public DRArchGenSubtargetInfo {
   DRArchTargetLowering TLInfo;
   DRArchFrameLowering FrameLowering;
   DRArchRegisterInfo RegInfo;
+  DRArchInstrInfo InstrInfo;
+  SelectionDAGTargetInfo TSInfo;
 
 public:
   DRArchSubtarget(const Triple &TT, const std::string &CPU, const std::string &FS,
@@ -36,6 +40,11 @@ public:
   const DRArchRegisterInfo *getRegisterInfo() const override {
     DRARCH_DUMP_CYAN
     return &RegInfo;
+  }
+  const DRArchInstrInfo *getInstrInfo() const override { return &InstrInfo; }
+  const SelectionDAGTargetInfo *getSelectionDAGInfo() const override {
+    DRARCH_DUMP_CYAN
+    return &TSInfo;
   }
 };
 
