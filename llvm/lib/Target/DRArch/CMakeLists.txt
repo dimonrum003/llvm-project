@@ -20,6 +20,7 @@ add_llvm_target(DRArchCodeGen
   DRArchAsmPrinter.cpp
   DRArchISelDagToDag.cpp
   DRArchISelLowering.cpp
+  DRArchMCInstLower.cpp
 
   LINK_COMPONENTS
   CodeGen

@@ -23,6 +23,19 @@
 namespace llvm {
 class DRArchTargetMachine;
 class FunctionPass;
+class DRArchSubtarget;
+class AsmPrinter;
+class InstructionSelector;
+class MCInst;
+class MCOperand;
+class MachineInstr;
+class MachineOperand;
+class PassRegistry;
+
+bool lowerDRArchMachineInstrToMCInst(const MachineInstr *MI, MCInst &OutMI,
+                                     AsmPrinter &AP);
+bool LowerDRArchMachineOperandToMCOperand(const MachineOperand &MO,
+                                          MCOperand &MCOp, const AsmPrinter &AP);
 
 FunctionPass *createDRArchISelDag(DRArchTargetMachine &TM, CodeGenOptLevel OptLevel);
 
