@@ -1,6 +1,7 @@
 #ifndef LLVM_LIB_TARGET_DRARCH_MCTARGETDESC_DRARCHMCTARGETDESC_H
 #define LLVM_LIB_TARGET_DRARCH_MCTARGETDESC_DRARCHMCTARGETDESC_H
 
+#include <memory>
 namespace llvm {
 class MCCodeEmitter;
 class MCContext;
@@ -16,6 +17,8 @@ MCCodeEmitter *createDRArchMCCodeEmitter(const MCInstrInfo &MCII, MCContext &Ctx
 MCAsmBackend *createDRArchAsmBackend(const Target &T, const MCSubtargetInfo &STI,
                                      const MCRegisterInfo &MRI,
                                      const MCTargetOptions &Options);
+std::unique_ptr<MCObjectTargetWriter> createDRArchELFObjectWriter(bool Is64Bit,
+                                                                  uint8_t OSABI);
 } // namespace llvm
 
 // Defines symbolic names for DRArch registers.  This defines a mapping from

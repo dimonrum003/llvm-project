@@ -4,6 +4,7 @@ add_llvm_component_library(LLVMDRArchDesc
   DRArchInstPrinter.cpp
   DRArchMCCodeEmitter.cpp
   DRArchAsmBackend.cpp
+  DRArchELFObjectWriter.cpp
 
   LINK_COMPONENTS
   MC
