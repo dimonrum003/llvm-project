@@ -9,6 +9,7 @@ tablegen(LLVM DRArchGenMCPseudoLowering.inc -gen-pseudo-lowering)
 tablegen(LLVM DRArchGenDAGISel.inc -gen-dag-isel)
 tablegen(LLVM DRArchGenCallingConv.inc -gen-callingconv)
 tablegen(LLVM DRArchGenAsmWriter.inc -gen-asm-writer)
+tablegen(LLVM DRArchGenMCCodeEmitter.inc -gen-emitter)
 
 add_public_tablegen_target(DRArchCommonTableGen)
 

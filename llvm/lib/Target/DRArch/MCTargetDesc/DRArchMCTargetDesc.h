@@ -1,6 +1,14 @@
 #ifndef LLVM_LIB_TARGET_DRARCH_MCTARGETDESC_DRARCHMCTARGETDESC_H
 #define LLVM_LIB_TARGET_DRARCH_MCTARGETDESC_DRARCHMCTARGETDESC_H
 
+namespace llvm {
+class MCCodeEmitter;
+class MCContext;
+class MCInstrInfo;
+
+MCCodeEmitter *createDRArchMCCodeEmitter(const MCInstrInfo &MCII, MCContext &Ctx);
+} // namespace llvm
+
 // Defines symbolic names for DRArch registers.  This defines a mapping from
 // register name to register number.
 //
