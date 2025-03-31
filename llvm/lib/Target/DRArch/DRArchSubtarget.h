@@ -2,6 +2,7 @@
 #define LLVM_LIB_TARGET_DRARCH_DRARCHSUBTARGET_H
 
 #include "DRArch.h"
+#include "DRArchFrameLowering.h"
 #include "DRArchISelLowering.h"
 #include "llvm/CodeGen/TargetSubtargetInfo.h"
 
@@ -12,6 +13,7 @@ namespace llvm {
 
 class DRArchSubtarget : public DRArchGenSubtargetInfo {
     DRArchTargetLowering TLInfo;
+    DRArchFrameLowering FrameLowering;
 
 public:
   DRArchSubtarget(const Triple &TT, const std::string &CPU, const std::string &FS,
@@ -24,6 +26,10 @@ public:
   const DRArchTargetLowering *getTargetLowering() const override {
     DRARCH_DUMP_CYAN
     return &TLInfo;
+  }
+  const DRArchFrameLowering *getFrameLowering() const override {
+    DRARCH_DUMP_CYAN
+    return &FrameLowering;
   }
 };
 
