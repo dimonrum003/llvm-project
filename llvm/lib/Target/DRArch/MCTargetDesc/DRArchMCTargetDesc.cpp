@@ -78,4 +78,6 @@ extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeDRArchTargetMC() {
   TargetRegistry::RegisterMCInstPrinter(TheDRArchTarget, createDRArchMCInstPrinter);
   // Register the MC Code Emitter.
   TargetRegistry::RegisterMCCodeEmitter(TheDRArchTarget, createDRArchMCCodeEmitter);
+  // Register the asm backend.
+  TargetRegistry::RegisterMCAsmBackend(TheDRArchTarget, createDRArchAsmBackend);
 }
