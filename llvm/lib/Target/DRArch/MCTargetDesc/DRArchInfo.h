@@ -7,7 +7,7 @@ namespace llvm {
 
 namespace DRArchOp {
 enum OperandType : unsigned {
-  OPERAND_DRARCHIMM16 = MCOI::OPERAND_FIRST_TARGET,
+  OPERAND_SIMM16 = MCOI::OPERAND_FIRST_TARGET,
 };
 } // namespace DRArchOp
 
