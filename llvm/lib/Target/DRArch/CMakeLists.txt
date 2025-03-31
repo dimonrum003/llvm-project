@@ -6,6 +6,7 @@ tablegen(LLVM DRArchGenRegisterInfo.inc -gen-register-info)
 tablegen(LLVM DRArchGenInstrInfo.inc -gen-instr-info)
 tablegen(LLVM DRArchGenSubtargetInfo.inc -gen-subtarget)
 tablegen(LLVM DRArchGenMCPseudoLowering.inc -gen-pseudo-lowering)
+tablegen(LLVM DRArchGenDAGISel.inc -gen-dag-isel)
  
 add_public_tablegen_target(DRArchCommonTableGen)
  
@@ -15,6 +16,7 @@ add_llvm_target(DRArchCodeGen
   DRArchInstrInfo.cpp
   DRArchSubtarget.cpp
   DRArchAsmPrinter.cpp
+  DRArchISelDagToDag.cpp
 
   LINK_COMPONENTS
   CodeGen
@@ -23,6 +25,7 @@ add_llvm_target(DRArchCodeGen
   Target
   DRArchInfo
   AsmPrinter
+  SelectionDAG
 
   ADD_TO_COMPONENT
   DRArch

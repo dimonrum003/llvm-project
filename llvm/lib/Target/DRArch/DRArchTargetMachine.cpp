@@ -34,8 +34,13 @@ public:
   DRArchPassConfig(DRArchTargetMachine &TM, PassManagerBase &PM)
       : TargetPassConfig(TM, PM) {}
 
+  DRArchTargetMachine &getDRArchTargetMachine() const {
+    return getTM<DRArchTargetMachine>();
+  }
+
   bool addInstSelector() override {
     DRARCH_DUMP_CYAN
+    addPass(createDRArchISelDag(getDRArchTargetMachine(), getOptLevel()));
     return false;
   }
 };
