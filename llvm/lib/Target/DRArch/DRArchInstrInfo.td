@@ -40,7 +40,7 @@ def simm16 : Operand<i32>, ImmLeaf<i32, [{return isInt<16>(Imm);}]> {
 //===----------------------------------------------------------------------===//
 
 let hasSideEffects = 0, mayLoad = 0, mayStore = 0, isCall = 1, isBranch = 1, isTerminator = 1, r2 = 0, r3_imm = 0 in
-def BR : DRArchInst<0xBB, (outs), (ins GPR:$r1), "BR $r1",
+def BR : DRArchInst<0xBA, (outs), (ins GPR:$r1), "BR $r1",
                  [(brind GPR:$r1)]>;
 
 let isBarrier = 1, isReturn = 1, isTerminator = 1 in
@@ -50,6 +50,6 @@ def PseudoRET : DRArchPseudoInst<(outs), (ins), "# PseudoRET",
 
 // movli
 let isAsCheapAsAMove = 1, isCodeGenOnly = 1, isReMaterializable = 1, r2 = 0 in
-def MOVLI : DRArchInst<0xAA, (outs GPR:$r1), (ins simm16:$r3_imm),
+def MOVLI : DRArchInst<0xAB, (outs GPR:$r1), (ins simm16:$r3_imm),
                     "MOVli $r1 $r3_imm",
                     [(set GPR:$r1, simm16:$r3_imm)]>;
